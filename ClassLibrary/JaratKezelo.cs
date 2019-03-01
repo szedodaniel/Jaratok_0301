@@ -75,6 +75,14 @@ namespace ClassLibrary
         {
             return Keres(jaratSzam).keses;
         }
+
+        public int setKeses(string jaratSzam, int keses)
+        {
+            Keres(jaratSzam).keses = keses;
+
+            return Keres(jaratSzam).keses;
+        }
+
         public int duplikaKeres(string jaratSzam)
         {
             int db = 0;

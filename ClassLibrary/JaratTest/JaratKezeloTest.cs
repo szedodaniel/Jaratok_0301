@@ -53,9 +53,26 @@ namespace ClassLibrary.JaratTest
         [Test]
         public void NegativKeses()
         {
+
+            jk.UjJarat("76", "Germany", "United Kingdom", DateTime.Parse("09:18"));
+            jk.UjJarat("176", "Germany", "United Kingdom", DateTime.Parse("09:18"));
+            jk.setKeses("176", -10);
+
             Assert.Throws<HibasJaratSzamException>(
                 () => {
-                    var jarat = jk.getJaratSzam("89");
+                    var jarat = jk.getKeses("76");
+                }
+            );
+        }
+
+        [Test]
+        public void NemLetezoUticel()
+        {
+            jk.UjJarat("176", "Germany", "United Kingdom", DateTime.Parse("09:18"));
+            jk.UjJarat("276", "Germany", "United Kingdom", DateTime.Parse("09:18"));
+            Assert.Throws<HibasJaratSzamException>(
+                () => {
+                    var jarat = jk.Uticel("Germany");                 
                 }
             );
         }
@@ -63,9 +80,11 @@ namespace ClassLibrary.JaratTest
         [Test]
         public void NemLetezoJaratSzam()
         {
+            jk.UjJarat("176", "Germany", "United Kingdom", DateTime.Parse("09:18"));
+            jk.UjJarat("276", "Germany", "United Kingdom", DateTime.Parse("09:18"));
             Assert.Throws<HibasJaratSzamException>(
                 () => {
-                    var jarat = jk.getJaratSzam("89");
+                    var jarat = jk.getJaratSzam("76");
                 }
             );
         }
