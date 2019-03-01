@@ -70,9 +70,10 @@ namespace ClassLibrary.JaratTest
         {
             jk.UjJarat("176", "Germany", "United Kingdom", DateTime.Parse("09:18"));
             jk.UjJarat("276", "Germany", "United Kingdom", DateTime.Parse("09:18"));
-            Assert.Throws<HibasJaratSzamException>(
+
+            Assert.Throws<ArgumentException>(
                 () => {
-                    var jarat = jk.Uticel("Germany");                 
+                    var jarat = jk.getJaratSzam("176");
                 }
             );
         }
